@@ -47,4 +47,10 @@ export const useProductStore = create((set) => ({
       };
     }
   },
+
+  getProducts: async () => {
+    const response = await fetch("/api/products");
+    const data = await response.json();
+    set({ products: data.data });
+  },
 }));
