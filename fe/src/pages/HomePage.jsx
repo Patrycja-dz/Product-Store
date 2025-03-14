@@ -1,5 +1,5 @@
 import Cards from "../components/Cards";
-import { Container, Heading, VStack, Text } from "@chakra-ui/react";
+import { Container, VStack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router";
 
@@ -17,7 +17,7 @@ const HomePage = () => {
           gradientTo="pink.400"
           bgClip={"text"}
         >
-          <Heading as={"h1"}>Current Products 🚀</Heading>
+          Current Products 🚀
         </Text>
         <Text fontSize={"xl"} textAlign={"center"} color={"gray.500"}>
           No products found{" "}
