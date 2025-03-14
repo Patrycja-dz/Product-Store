@@ -1,0 +1,146 @@
+import { useState } from "react";
+import { useColorModeValue } from "../components/ui/color-mode";
+import {
+  Box,
+  Button,
+  Container,
+  Heading,
+  HStack,
+  Input,
+  VStack,
+} from "@chakra-ui/react";
+import React from "react";
+
+const CreatePage = () => {
+  const [newProduct, setNewProduct] = useState({
+    name: "",
+    price: "",
+    description: "",
+    image: "",
+    brand: "",
+    category: "",
+    rating: "",
+    numReviews: "",
+  });
+  const handleAddProduct = () => {
+    console.log(newProduct);
+  };
+  return (
+    <Container maxW={"3xl"}>
+      <VStack spacing={4}>
+        <Heading as={"h1"} size={"2xl"} mb={8}>
+          Create New Product
+        </Heading>
+        <Box
+          w={"full"}
+          bg={useColorModeValue("white", "grey.700")}
+          rounded={"lg"}
+          shadow={"md"}
+        >
+          <VStack spacing={8} p={8}>
+            <HStack
+              width="full"
+              flexDir={{
+                base: "column",
+                sm: "row",
+              }}
+            >
+              <Input
+                placeholder="Product Name"
+                name="name"
+                value={newProduct.name}
+                onChange={(e) =>
+                  setNewProduct({ ...newProduct, name: e.target.value })
+                }
+              />
+
+              <Input
+                placeholder="Product Price"
+                name="price"
+                value={newProduct.price}
+                onChange={(e) =>
+                  setNewProduct({ ...newProduct, price: e.target.value })
+                }
+              />
+            </HStack>
+            <Input
+              placeholder="Product Description"
+              name="description"
+              value={newProduct.description}
+              onChange={(e) =>
+                setNewProduct({ ...newProduct, description: e.target.value })
+              }
+            />
+            <Input
+              placeholder="Product Image"
+              name="image"
+              value={newProduct.image}
+              onChange={(e) =>
+                setNewProduct({ ...newProduct, image: e.target.value })
+              }
+            />
+            <HStack
+              width="full"
+              flexDir={{
+                base: "column",
+                sm: "row",
+              }}
+            >
+              <Input
+                placeholder="Product Brand"
+                name="brand"
+                value={newProduct.brand}
+                onChange={(e) =>
+                  setNewProduct({ ...newProduct, brand: e.target.value })
+                }
+              />
+              <Input
+                placeholder="Product Category"
+                name="category"
+                value={newProduct.category}
+                onChange={(e) =>
+                  setNewProduct({ ...newProduct, category: e.target.value })
+                }
+              />
+            </HStack>
+
+            <HStack
+              width="full"
+              flexDir={{
+                base: "column",
+                sm: "row",
+              }}
+            >
+              <Input
+                placeholder="Product Rating"
+                name="rating"
+                value={newProduct.rating}
+                onChange={(e) =>
+                  setNewProduct({ ...newProduct, rating: e.target.value })
+                }
+              />
+              <Input
+                placeholder="Product Number of Revivews"
+                name="numReviews"
+                value={newProduct.numReviews}
+                onChange={(e) =>
+                  setNewProduct({ ...newProduct, numReviews: e.target.value })
+                }
+              />
+            </HStack>
+            <Button
+              colorPalette="blue"
+              w={"full"}
+              variant={"subtle"}
+              onClick={handleAddProduct}
+            >
+              Create Product
+            </Button>
+          </VStack>
+        </Box>
+      </VStack>
+    </Container>
+  );
+};
+
+export default CreatePage;
